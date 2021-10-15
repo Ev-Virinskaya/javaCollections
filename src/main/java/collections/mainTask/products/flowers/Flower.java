@@ -4,6 +4,7 @@ import collections.mainTask.products.Product;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public abstract class Flower extends Product {
 
@@ -36,8 +37,29 @@ public abstract class Flower extends Product {
     }
 
     public long findFresh() {
-        Duration duration = Duration.between(LocalDateTime.now(), dateManufacture);
-        return duration.toMinutes();
+        Duration duration = Duration.between(dateManufacture, LocalDateTime.now());
+        return duration.toHours();
     }
 
+    @Override
+    public String toString() {
+        return "Flower{" +
+                "stemLength=" + stemLength +
+                ", dateManufacture=" + dateManufacture +
+                ", color='" + color + '\'' +
+                "} " + super.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Flower flower)) return false;
+        if (!super.equals(o)) return false;
+        return getStemLength() == flower.getStemLength() && Objects.equals(getDateManufacture(), flower.getDateManufacture()) && Objects.equals(getColor(), flower.getColor());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getStemLength(), getDateManufacture(), getColor());
+    }
 }

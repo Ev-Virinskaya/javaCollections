@@ -17,4 +17,11 @@ public class Gerbera extends Flower {
     public GerberaVariety getGerberaVariety() {
         return gerberaVariety;
     }
+
+    @Override
+    public String toString() {
+        return "Gerbera{" +
+                "gerberaVariety=" + gerberaVariety +
+                '}';
+    }
 }

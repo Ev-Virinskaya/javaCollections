@@ -15,4 +15,11 @@ public class Peony extends Flower{
     public PeonyVariety getPeonyVariety() {
         return peonyVariety;
     }
+
+    @Override
+    public String toString() {
+        return "Peony{" +
+                "peonyVariety=" + peonyVariety +
+                '}';
+    }
 }

@@ -27,12 +27,12 @@ public class Bouquet {
         this.bouquet = bouquet;
     }
 
-    public double getPriceBouquet() {
+    public void getPriceBouquet() {
         double priceBouquet = 0;
         for (Product product : bouquet) {
             priceBouquet += product.getCost();
         }
-        return priceBouquet;
+        System.out.println("Цена букета: " + priceBouquet + " денег");
     }
 
     public void sortFlowersByFresh() {
@@ -43,13 +43,21 @@ public class Bouquet {
             }
         }
         sortedFlowersByFresh.sort((flowerOne, flowerTwo) -> (int) flowerOne.findFresh() - (int) flowerTwo.findFresh());
-        sortedFlowersByFresh.forEach(System.out::println);
+        for (Flower flower : sortedFlowersByFresh) {
+            System.out.println(flower.findFresh() + " часов с момента поставки: " + flower);
+
+        }
     }
 
-    public Product findFlowerByStemLength(int bottomLengthRang, int topLengthRange) {
+    public void findFlowerByStemLength(int bottomLengthRang, int topLengthRange) {
 
-        return bouquet.stream().filter(product -> product instanceof Flower)
+        List<Product> flowersSortedByStemLength =  bouquet.stream().filter(product -> product instanceof Flower)
                 .filter(product -> ((Flower) product).getStemLength() >= bottomLengthRang
-                        && ((Flower) product).getStemLength() <= topLengthRange).findFirst().get();
+                        && ((Flower) product).getStemLength() <= topLengthRange).toList();
+
+        if(flowersSortedByStemLength.size() == 0) {
+            System.out.println("Цветов с такой длинной стебле нет в каталоге");
+        }
+        System.out.println(flowersSortedByStemLength.get(0));
     }
 }
