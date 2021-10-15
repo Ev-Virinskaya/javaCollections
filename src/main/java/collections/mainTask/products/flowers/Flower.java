@@ -13,8 +13,8 @@ public abstract class Flower extends Product {
     private String color;
 
 
-    public Flower(double cost, int stemLength, LocalDateTime dateManufacture, String color) {
-        super(cost);
+    public Flower (String name, double cost, int stemLength, LocalDateTime dateManufacture, String color) {
+        super(name, cost);
         this.stemLength = stemLength;
         this.dateManufacture = dateManufacture;
         this.color = color;
@@ -39,6 +39,11 @@ public abstract class Flower extends Product {
     public long findFresh() {
         Duration duration = Duration.between(dateManufacture, LocalDateTime.now());
         return duration.toHours();
+    }
+
+    @Override
+    public double getCost() {
+        return super.getCost();
     }
 
     @Override

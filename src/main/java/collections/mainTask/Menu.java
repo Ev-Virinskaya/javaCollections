@@ -7,44 +7,44 @@ import collections.mainTask.products.flowers.*;
 import collections.mainTask.products.flowers.types.*;
 
 import java.time.LocalDateTime;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
     static List<Product> catalog = Arrays.asList(
-            new Peony(2, 10,
+            new Peony("Красные кустистые пеоны",2, 10,
                     LocalDateTime.of(2021, 10, 14, 17, 0),
                     "red", PeonyVariety.PEONY_BUSH),
-            new Peony(2.3, 8,
+            new Peony("Розовые мохровые пионы",2.3, 8,
                     LocalDateTime.of(2021, 10, 10, 10, 0),
                     "pink", PeonyVariety.TERRY_PEONY),
-            new Peony(3, 12,
+            new Peony("Белые японские пионы",3, 12,
                     LocalDateTime.of(2021, 10, 12, 16, 20),
                     "white", PeonyVariety.PEONY_JAPANESE),
-            new Rose(4, 8,
+            new Rose("Розовые пионовидные розы",4, 8,
                     LocalDateTime.of(2021, 10, 13, 17, 10),
                     "pink", RoseVariety.PEONY_ROSE),
-            new Rose(1, 5,
+            new Rose("Красные садовые розы",1, 5,
                     LocalDateTime.of(2021, 10, 12, 13, 40),
                     "red", RoseVariety.GARDEN_ROSE),
-            new Gerbera(1.2, 6,
+            new Gerbera("Красные герберы обычные",1.2, 6,
                     LocalDateTime.of(2021, 10, 14, 15, 40),
                     "red", GerberaVariety.GERBERA_COMMON),
-            new Gerbera(2, 10,
+            new Gerbera("Голубые герберы Мини",2, 10,
                     LocalDateTime.of(2021, 10, 14, 17, 40),
                     "blue", GerberaVariety.GERBERA_MINI),
-            new Box(7, ShapeBox.CIRCLE, SizeWrap.LARGE, "yellow"));
+            new Wrap("Голубая органза",5, TypeWrap.TEXTILE, SizeWrap.BIG, "blue"),
+            new Wrap("Черная оберточная бумага",4, TypeWrap.PAPER, SizeWrap.MIDDLE, "black"),
+            new Box("Желтая коробка большая",7, ShapeBox.CIRCLE, SizeWrap.LARGE, "yellow"));
 
     public static void main(String[] args) {
         Bouquet bouquet = new Bouquet(catalog);
 
-
         System.out.println("""
                 Чтобы узнать стоимость букета нажмите : 1\s
                 Чтобы отсортировать цветы по их свежести нажмите : 2\s
-                Чтобы найти цветок с длинной в указаном диапозоне нажмите : 3\s
+                Чтобы найти цветы с длинной в указаном диапозоне нажмите : 3\s
                 Для выхода из программы нажмите : 0\s
                 """);
         Scanner scanner = new Scanner(System.in);

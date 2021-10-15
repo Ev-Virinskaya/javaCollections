@@ -8,9 +8,41 @@ import java.util.Objects;
 public class Rose extends Flower{
     private RoseVariety roseVariety;
 
-    public Rose(double cost,  int stemLength, LocalDateTime dateManufacture, String color, RoseVariety roseVariety) {
-        super(cost, stemLength, dateManufacture, color);
+    public Rose(String name, double cost,  int stemLength, LocalDateTime dateManufacture, String color, RoseVariety roseVariety) {
+        super(name,cost, stemLength, dateManufacture, color);
         this.roseVariety = roseVariety;
+    }
+
+    public Rose(RoseVariety roseVariety) {
+        this.roseVariety = roseVariety;
+    }
+
+    public Rose() {
+    }
+
+    @Override
+    public double getCost() {
+        return super.getCost();
+    }
+
+    @Override
+    public int getStemLength() {
+        return super.getStemLength();
+    }
+
+    @Override
+    public LocalDateTime getDateManufacture() {
+        return super.getDateManufacture();
+    }
+
+    @Override
+    public String getColor() {
+        return super.getColor();
+    }
+
+    @Override
+    public long findFresh() {
+        return super.findFresh();
     }
 
     public RoseVariety getRoseVariety() {
@@ -21,7 +53,7 @@ public class Rose extends Flower{
     public String toString() {
         return "Rose{" +
                 "roseVariety=" + roseVariety +
-                '}';
+                "} " + super.toString();
     }
 
     @Override
