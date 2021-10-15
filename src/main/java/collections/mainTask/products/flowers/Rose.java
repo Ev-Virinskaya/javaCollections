@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 public class Rose extends Flower{
     private RoseVariety roseVariety;
 
-    public Rose(double cost, int stemLength, LocalDateTime dateManufacture, String color, RoseVariety roseVariety) {
+    public Rose(double cost,  int stemLength, LocalDateTime dateManufacture, String color, RoseVariety roseVariety) {
         super(cost, stemLength, dateManufacture, color);
         this.roseVariety = roseVariety;
     }

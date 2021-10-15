@@ -11,16 +11,17 @@ public abstract class Flower extends Product {
     private LocalDateTime dateManufacture;
     private String color;
 
-    public Flower(double cost, int stemLength,
-                  LocalDateTime dateManufacture, String color) {
-        super(cost);
 
+    public Flower(double cost, int stemLength, LocalDateTime dateManufacture, String color) {
+        super(cost);
         this.stemLength = stemLength;
         this.dateManufacture = dateManufacture;
         this.color = color;
+
     }
 
-
+    public Flower() {
+    }
 
     public int getStemLength() {
         return stemLength;
@@ -35,9 +36,8 @@ public abstract class Flower extends Product {
     }
 
     public long findFresh() {
-       Duration duration = Duration.between(LocalDateTime.now(), dateManufacture);
-       long dur = duration.toMinutes();
-        return 0;
+        Duration duration = Duration.between(LocalDateTime.now(), dateManufacture);
+        return duration.toMinutes();
     }
 
 }

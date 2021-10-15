@@ -1,5 +1,5 @@
 package collections.mainTask.products.accessories.types;
 
-public enum TypeWrap {
-    PAPER, TEXTILE, CELLOPHANE
+public enum ShapeBox {
+    CIRCLE, SQUARE, RECTANGLE
 }
