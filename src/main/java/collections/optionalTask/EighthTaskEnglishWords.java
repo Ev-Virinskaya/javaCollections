@@ -10,11 +10,9 @@ public class EighthTaskEnglishWords {
         try (BufferedReader reader = new BufferedReader
                 (new FileReader(new Scanner(System.in).nextLine()))) {
             Set<String> uniqueWords = new HashSet<>();
-            List<String> strings;
 
             while (reader.ready()) {
-                strings = Arrays.asList(reader.readLine().toLowerCase().split(" "));
-                uniqueWords.addAll(strings);
+                uniqueWords.addAll(Arrays.asList(reader.readLine().toLowerCase().split(" ")));
             }
             uniqueWords.forEach(System.out::println);
 
