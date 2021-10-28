@@ -4,6 +4,7 @@ import collections.mainTask.products.Product;
 import collections.mainTask.products.flowers.Flower;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -35,7 +36,7 @@ public class Bouquet {
                 sortedFlowersByFresh.add((Flower) flower);
             }
         }
-        sortedFlowersByFresh.sort((flowerOne, flowerTwo) -> (int) flowerOne.findFresh() - (int) flowerTwo.findFresh());
+        sortedFlowersByFresh.sort(Comparator.comparingInt(flowerOne -> (int) flowerOne.findFresh()));
         for (Flower flower : sortedFlowersByFresh) {
             System.out.println(flower.findFresh() + " часов с момента поставки: " + flower.getName() + " (" + flower.getDateManufacture() + ")");
 
